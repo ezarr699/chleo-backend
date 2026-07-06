@@ -20,6 +20,9 @@
 /public/storage
 /storage/*.key
 /storage/pail
+/storage/certs
+/storage/tenantacme
+/storage/tenantdemo
 /vendor
 _ide_helper.php
 Homestead.json

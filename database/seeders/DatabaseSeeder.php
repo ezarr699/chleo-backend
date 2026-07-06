@@ -15,7 +15,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\Tenancy\Database\Seeders\DemoTenantSeeder;
+use App\Modules\Tenancy\Database\Seeders\DemoTenantSeeder;
 
 class DatabaseSeeder extends Seeder
 {

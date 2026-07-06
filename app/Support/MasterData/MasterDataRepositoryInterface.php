@@ -8,7 +8,7 @@
  * @description Kontrak generik untuk Repository data master (Agama,
  *              Golongan Darah, dst). Setiap modul data master punya
  *              interface sendiri yang extends ini (lihat
- *              Modules/Agama/Contracts/AgamaRepositoryInterface.php),
+ *              app/Modules/Agama/Contracts/AgamaRepositoryInterface.php),
  *              murni untuk binding DI per modul.
  * @author      [Nama Developer]
  * @since       v1.0.0

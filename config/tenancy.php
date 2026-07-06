@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Modules\Tenancy\Models\Domain;
-use Modules\Tenancy\Models\Tenant;
+use App\Modules\Tenancy\Models\Domain;
+use App\Modules\Tenancy\Models\Tenant;
 
 return [
     'tenant_model' => Tenant::class,
@@ -24,9 +24,20 @@ return [
     /**
      * Base domain used to build a tenant's full hostname: "{slug}.{central_base_domain}".
      * Custom config key (not part of stancl/tenancy core) consumed by
-     * Modules\Tenancy\Repositories\TenantRepository.
+     * App\Modules\Tenancy\Repositories\TenantRepository.
      */
     'central_base_domain' => env('TENANCY_CENTRAL_DOMAIN', 'localhost'),
+
+    /**
+     * Dev convenience only: id tenant yang dipakai saat request masuk
+     * lewat host "localhost" polos, tanpa subdomain (mis. tidak perlu
+     * demo.localhost). Dikonsumsi oleh
+     * App\Modules\Tenancy\Http\Middleware\InitializeTenancyByHostWithLocalhostFallback
+     * dan PreventAccessFromCentralDomainsExceptLocalhostFallback.
+     * Biarkan kosong (default) di staging/production — subdomain tenant
+     * tetap wajib di sana.
+     */
+    'localhost_fallback_tenant' => env('TENANCY_LOCALHOST_FALLBACK_TENANT'),
 
     /**
      * Shared secret required (via X-Management-Token header) for all tenant

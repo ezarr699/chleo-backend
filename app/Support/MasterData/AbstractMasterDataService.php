@@ -9,7 +9,7 @@
  *              create, update, delete. Setiap modul punya Service
  *              sendiri yang extends class ini dengan constructor
  *              menyempitkan type-hint ke interface repository modulnya
- *              sendiri (lihat Modules/Agama/Services/AgamaService.php),
+ *              sendiri (lihat app/Modules/Agama/Services/AgamaService.php),
  *              supaya container resolve binding yang benar per modul.
  * @author      [Nama Developer]
  * @since       v1.0.0

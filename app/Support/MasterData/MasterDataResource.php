@@ -7,7 +7,7 @@
  * @path        app/Support/MasterData/MasterDataResource.php
  * @description Transformasi response generik untuk data master.
  *              Setiap modul punya Resource sendiri yang extends class
- *              ini (body kosong) — lihat Modules/Agama/Resources/AgamaResource.php.
+ *              ini (body kosong) — lihat app/Modules/Agama/Resources/AgamaResource.php.
  * @author      [Nama Developer]
  * @since       v1.0.0
  * @ref         https://laravel.com/docs/13.x/eloquent-resources
