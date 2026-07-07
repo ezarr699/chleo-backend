@@ -45,6 +45,7 @@ class RolesAndPermissionsSeeder extends Seeder
         'pekerjaan',
         'pendidikan_terakhir',
         'hubungan_keluarga',
+        'profil_nakes',
     ];
 
     /**
