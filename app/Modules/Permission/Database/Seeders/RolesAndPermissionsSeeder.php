@@ -34,6 +34,17 @@ class RolesAndPermissionsSeeder extends Seeder
         'penjamin',
         'asuransi',
         'pasien',
+        'profesi',
+        'poliklinik',
+        'satuan',
+        'kategori_layanan',
+        'kategori_obat',
+        'kategori_triase',
+        'agama',
+        'status_perkawinan',
+        'pekerjaan',
+        'pendidikan_terakhir',
+        'hubungan_keluarga',
     ];
 
     /**
