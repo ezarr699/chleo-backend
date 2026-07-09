@@ -13,7 +13,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Poliklinik;
+use Modules\Poliklinik\Models\Poliklinik;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

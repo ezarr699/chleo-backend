@@ -13,7 +13,7 @@
 
 namespace Database\Factories;
 
-use App\Models\JenisKelamin;
+use Modules\JenisKelamin\Models\JenisKelamin;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

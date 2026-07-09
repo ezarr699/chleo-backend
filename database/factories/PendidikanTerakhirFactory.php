@@ -13,7 +13,7 @@
 
 namespace Database\Factories;
 
-use App\Models\PendidikanTerakhir;
+use Modules\PendidikanTerakhir\Models\PendidikanTerakhir;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

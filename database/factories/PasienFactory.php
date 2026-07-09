@@ -13,9 +13,9 @@
 
 namespace Database\Factories;
 
-use App\Models\JenisKelamin;
-use App\Models\Pasien;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\JenisKelamin\Models\JenisKelamin;
+use Modules\Pasien\Models\Pasien;
 
 /**
  * @extends Factory<Pasien>

@@ -13,8 +13,8 @@
 
 namespace Database\Factories;
 
-use App\Models\Agama;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Agama\Models\Agama;
 
 /**
  * @extends Factory<Agama>

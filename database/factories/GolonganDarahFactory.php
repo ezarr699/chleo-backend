@@ -13,7 +13,7 @@
 
 namespace Database\Factories;
 
-use App\Models\GolonganDarah;
+use Modules\GolonganDarah\Models\GolonganDarah;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

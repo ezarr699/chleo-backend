@@ -23,12 +23,12 @@ pest()->extend(TestCase::class)
 // MySQL transaction — RefreshDatabase's transaction-per-test wrapping
 // silently breaks (later ROLLBACK calls become no-ops) once that happens.
 // Tenant-aware Feature tests clean up for real via
-// App\Modules\Tenancy\Tests\Concerns\WithTenant + explicit afterEach() instead.
+// Modules\Tenancy\Tests\Concerns\WithTenant + explicit afterEach() instead.
 pest()->extend(TestCase::class)
-    ->in(...glob(__DIR__.'/../app/Modules/*/Tests/Feature'));
+    ->in(...glob(__DIR__.'/../Modules/*/Tests/Feature'));
 
 pest()->extend(TestCase::class)
-    ->in(...glob(__DIR__.'/../app/Modules/*/Tests/Unit'));
+    ->in(...glob(__DIR__.'/../Modules/*/Tests/Unit'));
 
 /*
 |--------------------------------------------------------------------------

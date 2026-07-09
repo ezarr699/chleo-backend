@@ -13,11 +13,11 @@
 
 namespace Database\Factories;
 
-use App\Models\Poliklinik;
-use App\Models\Profesi;
-use App\Models\ProfilNakes;
-use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Auth\Models\User;
+use Modules\Poliklinik\Models\Poliklinik;
+use Modules\Profesi\Models\Profesi;
+use Modules\ProfilNakes\Models\ProfilNakes;
 
 /**
  * @extends Factory<ProfilNakes>

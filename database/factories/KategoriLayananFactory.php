@@ -13,7 +13,7 @@
 
 namespace Database\Factories;
 
-use App\Models\KategoriLayanan;
+use Modules\KategoriLayanan\Models\KategoriLayanan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

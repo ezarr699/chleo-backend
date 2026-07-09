@@ -13,7 +13,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Asuransi;
+use Modules\Asuransi\Models\Asuransi;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

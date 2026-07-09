@@ -13,7 +13,7 @@
 
 namespace Database\Factories;
 
-use App\Models\StatusPerkawinan;
+use Modules\StatusPerkawinan\Models\StatusPerkawinan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

@@ -13,7 +13,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Pekerjaan;
+use Modules\Pekerjaan\Models\Pekerjaan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

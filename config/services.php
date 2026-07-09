@@ -35,4 +35,25 @@ return [
         ],
     ],
 
+    /*
+    |--------------------------------------------------------------------------
+    | BPJS V-Claim (JKN-01-2)
+    |--------------------------------------------------------------------------
+    |
+    | Kredensial dari portal Trustmark BPJS Kesehatan (cons_id/secret_key/
+    | user_key), BUKAN dari SISRUTE (sistem terpisah milik Kemenkes). Dipakai
+    | oleh Bridging\Bpjs\VClaim\* (package indravscode/bridging-bpjs) lewat
+    | Modules\Jkn\Services\VClaimService. Isi base_url sesuai environment
+    | BPJS (dev/staging pakai host -dev, produksi beda host — cek dokumentasi
+    | Trustmark kamu untuk nilai yang benar).
+    |
+    */
+    'bpjs_vclaim' => [
+        'cons_id' => env('BPJS_VCLAIM_CONS_ID'),
+        'secret_key' => env('BPJS_VCLAIM_SECRET_KEY'),
+        'user_key' => env('BPJS_VCLAIM_USER_KEY'),
+        'base_url' => env('BPJS_VCLAIM_BASE_URL'),
+        'service_name' => env('BPJS_VCLAIM_SERVICE_NAME', ''),
+    ],
+
 ];

@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use App\Modules\Tenancy\Models\Domain;
-use App\Modules\Tenancy\Models\Tenant;
+use Modules\Tenancy\Models\Domain;
+use Modules\Tenancy\Models\Tenant;
 
 return [
     'tenant_model' => Tenant::class,
@@ -24,7 +24,7 @@ return [
     /**
      * Base domain used to build a tenant's full hostname: "{slug}.{central_base_domain}".
      * Custom config key (not part of stancl/tenancy core) consumed by
-     * App\Modules\Tenancy\Repositories\TenantRepository.
+     * Modules\Tenancy\Repositories\TenantRepository.
      */
     'central_base_domain' => env('TENANCY_CENTRAL_DOMAIN', 'localhost'),
 
@@ -32,12 +32,22 @@ return [
      * Dev convenience only: id tenant yang dipakai saat request masuk
      * lewat host "localhost" polos, tanpa subdomain (mis. tidak perlu
      * demo.localhost). Dikonsumsi oleh
-     * App\Modules\Tenancy\Http\Middleware\InitializeTenancyByHostWithLocalhostFallback
+     * Modules\Tenancy\Http\Middleware\InitializeTenancyByHostWithLocalhostFallback
      * dan PreventAccessFromCentralDomainsExceptLocalhostFallback.
      * Biarkan kosong (default) di staging/production — subdomain tenant
      * tetap wajib di sana.
      */
     'localhost_fallback_tenant' => env('TENANCY_LOCALHOST_FALLBACK_TENANT'),
+
+    /**
+     * Hosts treated the same as "localhost" by the fallback middlewares
+     * above (e.g. a server's public IP, for dev/demo access without a
+     * real domain). Comma-separated. Defaults to just 'localhost'.
+     */
+    'localhost_fallback_hosts' => array_values(array_filter(array_map(
+        'trim',
+        explode(',', env('TENANCY_LOCALHOST_FALLBACK_HOSTS', 'localhost'))
+    ))),
 
     /**
      * Shared secret required (via X-Management-Token header) for all tenant
@@ -48,18 +58,29 @@ return [
     'management_token' => env('TENANT_MANAGEMENT_TOKEN'),
 
     /**
+     * Dev convenience only: kalau true, semua tenant berbagi satu database
+     * (central_connection di bawah — chleo_central), tidak ada database
+     * per-tenant yang dibuat/di-switch. Dikonsumsi di sini (melewatkan
+     * DatabaseTenancyBootstrapper) dan di TenancyServiceProvider (melewatkan
+     * job CreateDatabase/MigrateDatabase/DeleteDatabase). Biarkan false
+     * (default) di staging/production — database-per-tenant tetap wajib
+     * di sana.
+     */
+    'single_database' => env('TENANCY_SINGLE_DATABASE', false),
+
+    /**
      * Tenancy bootstrappers are executed when tenancy is initialized.
      * Their responsibility is making Laravel features tenant-aware.
      *
      * To configure their behavior, see the config keys below.
      */
-    'bootstrappers' => [
-        Stancl\Tenancy\Bootstrappers\DatabaseTenancyBootstrapper::class,
+    'bootstrappers' => array_values(array_filter([
+        env('TENANCY_SINGLE_DATABASE', false) ? null : Stancl\Tenancy\Bootstrappers\DatabaseTenancyBootstrapper::class,
         Stancl\Tenancy\Bootstrappers\CacheTenancyBootstrapper::class,
         Stancl\Tenancy\Bootstrappers\FilesystemTenancyBootstrapper::class,
         Stancl\Tenancy\Bootstrappers\QueueTenancyBootstrapper::class,
         // Stancl\Tenancy\Bootstrappers\RedisTenancyBootstrapper::class, // Note: phpredis is needed
-    ],
+    ])),
 
     /**
      * Database tenancy config. Used by DatabaseTenancyBootstrapper.
@@ -212,7 +233,17 @@ return [
      */
     'migration_parameters' => [
         '--force' => true, // This needs to be true to run migrations in production.
-        '--path' => [database_path('migrations/tenant')],
+        /**
+         * database/migrations/tenant -> migrasi tenant "lama" (modul di app/Modules/).
+         * Modules/*\/Database/Migrations/tenant -> migrasi tenant milik modul Clean
+         * Architecture generasi baru (root Modules/) yang menyimpan skema tenant-nya
+         * sendiri secara lokal, bukan di folder migration terpusat. Additive: path lama
+         * tetap dipertahankan supaya modul di app/Modules/ tidak terpengaruh.
+         */
+        '--path' => [
+            database_path('migrations/tenant'),
+            ...glob(base_path('Modules/*/Database/Migrations/tenant')),
+        ],
         '--realpath' => true,
     ],
 

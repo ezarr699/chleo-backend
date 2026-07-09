@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a2b16213cb161e21654ee1488c0f9777",
+    "content-hash": "f0d361427f1eef7613e153c6ae093a1b",
     "packages": [
         {
             "name": "brick/math",
@@ -1109,6 +1109,47 @@
                 }
             ],
             "time": "2026-06-12T21:33:43+00:00"
+        },
+        {
+            "name": "indravscode/bridging-bpjs",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/indravscode/bridging-bpjs.git",
+                "reference": "bcfcc33120a503a23416c1aa386cc541e6f186df"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/indravscode/bridging-bpjs/zipball/bcfcc33120a503a23416c1aa386cc541e6f186df",
+                "reference": "bcfcc33120a503a23416c1aa386cc541e6f186df",
+                "shasum": ""
+            },
+            "require": {
+                "guzzlehttp/guzzle": ">=6.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Bridging\\Bpjs\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Indra Adnyana",
+                    "email": "gdindra13@gmail.com"
+                }
+            ],
+            "description": "Package wrapper untuk bridging BPJS (VClaim, Aplicare, PCare dan i-Care)",
+            "support": {
+                "issues": "https://github.com/indravscode/bridging-bpjs/issues",
+                "source": "https://github.com/indravscode/bridging-bpjs/tree/main"
+            },
+            "time": "2026-07-08T07:25:54+00:00"
         },
         {
             "name": "laravel/framework",
@@ -10020,7 +10061,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "indravscode/bridging-bpjs": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

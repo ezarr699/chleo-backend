@@ -13,10 +13,10 @@
 
 namespace Database\Factories;
 
-use App\Models\Asuransi;
-use App\Models\Pasien;
-use App\Models\PasienAsuransi;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Modules\Asuransi\Models\Asuransi;
+use Modules\Pasien\Models\Pasien;
+use Modules\Pasien\Models\PasienAsuransi;
 
 /**
  * @extends Factory<PasienAsuransi>

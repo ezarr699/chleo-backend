@@ -29,9 +29,9 @@
 
 use Illuminate\Support\Facades\Route;
 use Laravel\Sanctum\Http\Controllers\CsrfCookieController;
-use App\Modules\Tenancy\Http\Middleware\EnsureTenantNotSuspended;
-use App\Modules\Tenancy\Http\Middleware\InitializeTenancyByHostWithLocalhostFallback;
-use App\Modules\Tenancy\Http\Middleware\PreventAccessFromCentralDomainsExceptLocalhostFallback;
+use Modules\Tenancy\Http\Middleware\EnsureTenantNotSuspended;
+use Modules\Tenancy\Http\Middleware\InitializeTenancyByHostWithLocalhostFallback;
+use Modules\Tenancy\Http\Middleware\PreventAccessFromCentralDomainsExceptLocalhostFallback;
 
 Route::middleware([InitializeTenancyByHostWithLocalhostFallback::class, PreventAccessFromCentralDomainsExceptLocalhostFallback::class, EnsureTenantNotSuspended::class])
     ->get('sanctum/csrf-cookie', [CsrfCookieController::class, 'show'])

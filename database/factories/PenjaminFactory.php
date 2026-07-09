@@ -13,7 +13,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Penjamin;
+use Modules\Penjamin\Models\Penjamin;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

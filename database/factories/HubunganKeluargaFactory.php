@@ -13,7 +13,7 @@
 
 namespace Database\Factories;
 
-use App\Models\HubunganKeluarga;
+use Modules\HubunganKeluarga\Models\HubunganKeluarga;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

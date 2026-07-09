@@ -13,7 +13,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Satuan;
+use Modules\Satuan\Models\Satuan;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
